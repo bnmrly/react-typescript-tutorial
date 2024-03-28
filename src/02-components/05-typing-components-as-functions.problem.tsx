@@ -4,11 +4,13 @@ interface Props {
   className: string;
 }
 
-/* @ts-expect-error */
-export const Button = (props: Props) => {
-  return {
-    ohDear: "123",
-  };
+export const Button: React.FC<Props> = (props: Props) => {
+  // error would be thrown here
+  // return {
+  //   ohDear: "123",
+  // };
+
+  return <div>Hello World</div>;
 };
 
 const Parent = () => {
