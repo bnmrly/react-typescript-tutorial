@@ -4,6 +4,8 @@ interface Props {
   className: string;
 }
 
+// React.FC is a generic type that takes Props as a type argument
+
 export const Button: React.FC<Props> = (props: Props) => {
   // error would be thrown here
   // return {
