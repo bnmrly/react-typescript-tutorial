@@ -1,6 +1,12 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 
-export const Button = ({ className, ...rest }: {}) => {
+// can use ComponentProps, which is nicer but can also use React.ButtonHTMLAttributes<HTMLButtonElement>
+
+export const Button = ({
+  className,
+  ...rest
+}: // }: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+ComponentProps<"button">) => {
   return (
     <button {...rest} className={`default-classname ${className}`}></button>
   );
