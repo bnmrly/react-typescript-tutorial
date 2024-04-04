@@ -11,7 +11,10 @@ const fetchData = () => {
 };
 
 export const Component = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<Data>();
+
+  // can also initialise state with undefined
+  // const [data, setData] = useState<Data | undefined>(undefined
 
   useEffect(() => {
     fetchData().then((val) => {
