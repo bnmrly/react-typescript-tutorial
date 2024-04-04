@@ -10,6 +10,9 @@ export const Tags = () => {
     tags: [],
     tagSelected: null,
   });
+
+  // passing a functtion to setState allows us to pass excess properties.
+  // if we set the function return type to TagState, we get errors when we try to add excess properties or misspell a property name
   return (
     <div>
       {state.tags.map((tag) => {
@@ -17,11 +20,13 @@ export const Tags = () => {
           <button
             key={tag.id}
             onClick={() => {
-              setState((currentState) => ({
-                ...currentState,
-                // @ts-expect-error
-                tagselected: tag.id,
-              }));
+              setState(
+                (currentState): TagState => ({
+                  ...currentState,
+                  // @ts-expect-error
+                  tagselected: tag.id,
+                })
+              );
             }}
           >
             {tag.value}
